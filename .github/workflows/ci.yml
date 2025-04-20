@@ -1,0 +1,51 @@
+name: Django CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_DB: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Docker Compose
+      run: |
+        docker-compose -f docker-compose.yml up -d --build
+
+    - name: Wait for PostgreSQL
+      run: |
+        echo "Waiting for DB to be ready..."
+        until docker exec database pg_isready -U postgres; do
+          sleep 2
+        done
+
+    - name: Run migrations
+      run: docker exec django python manage.py migrate
+
+    - name: Run tests
+      run: docker exec django python manage.py test
+
+    - name: Tear down
+      if: always()
+      run: docker-compose -f docker-compose.yml down -v
