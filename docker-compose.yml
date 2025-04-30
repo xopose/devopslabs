@@ -1,16 +1,18 @@
 version: '3'
 
 services:
-  django:
-    build: .
-    container_name: django
-    command: python manage.py runserver 0.0.0.0:8080
-    volumes:
-      - .:/usr/src/app
+  java-app:
+    image: spring-backend
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
     ports:
       - "8080:8080"
     depends_on:
       - database
+    environment:
+      - SERVER_PORT= 8080
+
 
   database:
     image: postgres
