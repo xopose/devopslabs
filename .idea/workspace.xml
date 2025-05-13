@@ -5,17 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e460686-9c1b-42d3-9109-89bbcb3158dc" name="Changes" comment="fix">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/lazer/backend/controller/AirPlaneController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/lazer/backend/model/Airplane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/lazer/backend/pojo/SimplePlane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/lazer/backend/repository/AirplaneRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/lazer/backend/service/JasksonService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.babelrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/__tests__/Airplanes.spec.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vitest.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vitest.setup.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/backend/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +94,7 @@
       <recent name="C:\Users\lazer\Desktop\raft-master\hashing\devopslabs\backend" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose.yml.java-app: Compose Deployment">
+  <component name="RunManager" selected="Docker.docker-compose.yml: Compose Deployment">
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings />
@@ -130,8 +124,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Docker.docker-compose.yml.java-app: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yml.java-app: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -176,6 +170,8 @@
       <workItem from="1747075714397" duration="207000" />
       <workItem from="1747076005319" duration="610000" />
       <workItem from="1747126619878" duration="169000" />
+      <workItem from="1747154375395" duration="288000" />
+      <workItem from="1747154676155" duration="7711000" />
     </task>
     <task id="LOCAL-00001" summary="change to java">
       <option name="closed" value="true" />
