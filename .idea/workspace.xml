@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e460686-9c1b-42d3-9109-89bbcb3158dc" name="Changes" comment="add frontend">
+    <list default="true" id="0e460686-9c1b-42d3-9109-89bbcb3158dc" name="Changes" comment="добавил ветки для лаб и сборку фронта">
       <change beforePath="$PROJECT_DIR$/.github/workflows/ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/ci.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +167,7 @@
       <workItem from="1747076005319" duration="610000" />
       <workItem from="1747126619878" duration="169000" />
       <workItem from="1747154375395" duration="288000" />
-      <workItem from="1747154676155" duration="8118000" />
+      <workItem from="1747154676155" duration="8628000" />
     </task>
     <task id="LOCAL-00001" summary="change to java">
       <option name="closed" value="true" />
@@ -290,7 +289,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747169320798</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="добавил ветки для лаб и сборку фронта">
+      <option name="closed" value="true" />
+      <created>1747169559221</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1747169559221</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -311,6 +318,7 @@
     <MESSAGE value="change to java" />
     <MESSAGE value="fix" />
     <MESSAGE value="add frontend" />
-    <option name="LAST_COMMIT_MESSAGE" value="add frontend" />
+    <MESSAGE value="добавил ветки для лаб и сборку фронта" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавил ветки для лаб и сборку фронта" />
   </component>
 </project>

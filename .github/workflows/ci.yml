@@ -64,3 +64,25 @@ jobs:
         run: |
           cd frontend
           npm run build
+
+  test-frontend:
+    needs: build-frontend
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Dependencies
+        run: |
+          cd frontend
+          npm ci
+
+      - name: Tests
+        run: |
+          cd frontend
+          npm run test
