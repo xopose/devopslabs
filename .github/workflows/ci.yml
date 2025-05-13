@@ -2,9 +2,9 @@ name: Spring CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, lab2, lab3, lab4 ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, lab2, lab3, lab4 ]
 
 jobs:
   build-backend:
@@ -44,3 +44,23 @@ jobs:
           cd backend
           mvn clean verify
 
+  build-frontend:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Dependencies
+        run: |
+          cd frontend
+          npm ci
+
+      - name: Build frontend
+        run: |
+          cd frontend
+          npm run build

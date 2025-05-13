@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e460686-9c1b-42d3-9109-89bbcb3158dc" name="Changes" comment="fix">
-      <change afterPath="$PROJECT_DIR$/frontend/.babelrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/src/components/__tests__/Airplanes.spec.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/vitest.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/vitest.setup.js" afterDir="false" />
+    <list default="true" id="0e460686-9c1b-42d3-9109-89bbcb3158dc" name="Changes" comment="add frontend">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/ci.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -171,7 +168,7 @@
       <workItem from="1747076005319" duration="610000" />
       <workItem from="1747126619878" duration="169000" />
       <workItem from="1747154375395" duration="288000" />
-      <workItem from="1747154676155" duration="7711000" />
+      <workItem from="1747154676155" duration="8118000" />
     </task>
     <task id="LOCAL-00001" summary="change to java">
       <option name="closed" value="true" />
@@ -285,7 +282,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746048986004</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="add frontend">
+      <option name="closed" value="true" />
+      <created>1747169320798</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1747169320798</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,6 +310,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="change to java" />
     <MESSAGE value="fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix" />
+    <MESSAGE value="add frontend" />
+    <option name="LAST_COMMIT_MESSAGE" value="add frontend" />
   </component>
 </project>
