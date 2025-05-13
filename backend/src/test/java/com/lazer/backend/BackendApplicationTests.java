@@ -75,25 +75,25 @@ public class BackendApplicationTests {
         assertThat(airplaneRepository.findById(plane.getId())).isEmpty();
     }
 
-//    @Test
-//    public void takeOffPlaneTest() throws Exception {
-//        Airplane plane = airplaneRepository.save(new Airplane("TakeOffPlane", 2018, false));
-//
-//        mockMvc.perform(post("/airplanes/flight/take_off/" + plane.getId()))
-//                .andExpect(status().isOk())
-//                .andExpect(content().string("true"));
-//
-//        assertThat(airplaneRepository.findById(plane.getId()).get().getIn_flight()).isTrue();
-//    }
-//
-//    @Test
-//    public void landPlaneTest() throws Exception {
-//        Airplane plane = airplaneRepository.save(new Airplane("LandingPlane", 2019, true));
-//
-//        mockMvc.perform(post("/airplanes/flight/land/" + plane.getId()))
-//                .andExpect(status().isOk())
-//                .andExpect(content().string("true"));
-//
-//        assertThat(airplaneRepository.findById(plane.getId()).get().getIn_flight()).isFalse();
-//    }
+    @Test
+    public void takeOffPlaneTest() throws Exception {
+        Airplane plane = airplaneRepository.save(new Airplane("TakeOffPlane", 2018, false));
+
+        mockMvc.perform(post("/airplanes/flight/take_off/" + plane.getId()))
+                .andExpect(status().isOk())
+                .andExpect(content().string("true"));
+
+        assertThat(airplaneRepository.findById(plane.getId()).get().getIn_flight()).isTrue();
+    }
+
+    @Test
+    public void landPlaneTest() throws Exception {
+        Airplane plane = airplaneRepository.save(new Airplane("LandingPlane", 2019, true));
+
+        mockMvc.perform(post("/airplanes/flight/land/" + plane.getId()))
+                .andExpect(status().isOk())
+                .andExpect(content().string("true"));
+
+        assertThat(airplaneRepository.findById(plane.getId()).get().getIn_flight()).isFalse();
+    }
 }
