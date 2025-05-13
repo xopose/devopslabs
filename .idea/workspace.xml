@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0e460686-9c1b-42d3-9109-89bbcb3158dc" name="Changes" comment="добавил тесты для фронта">
+    <list default="true" id="0e460686-9c1b-42d3-9109-89bbcb3158dc" name="Changes" comment="поправил команду для запуска тестов">
       <change beforePath="$PROJECT_DIR$/.github/workflows/ci.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/ci.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -167,7 +167,7 @@
       <workItem from="1747076005319" duration="610000" />
       <workItem from="1747126619878" duration="169000" />
       <workItem from="1747154375395" duration="288000" />
-      <workItem from="1747154676155" duration="8815000" />
+      <workItem from="1747154676155" duration="8893000" />
     </task>
     <task id="LOCAL-00001" summary="change to java">
       <option name="closed" value="true" />
@@ -305,7 +305,15 @@
       <option name="project" value="LOCAL" />
       <updated>1747170082283</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="поправил команду для запуска тестов">
+      <option name="closed" value="true" />
+      <created>1747170251698</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1747170251698</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -328,6 +336,7 @@
     <MESSAGE value="add frontend" />
     <MESSAGE value="добавил ветки для лаб и сборку фронта" />
     <MESSAGE value="добавил тесты для фронта" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавил тесты для фронта" />
+    <MESSAGE value="поправил команду для запуска тестов" />
+    <option name="LAST_COMMIT_MESSAGE" value="поправил команду для запуска тестов" />
   </component>
 </project>
