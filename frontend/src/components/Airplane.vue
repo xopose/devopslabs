@@ -31,6 +31,10 @@ async function landPlane(id) {
   await axios.post("/airplanes/flight/land/" + id).then(
       response => (getAirplanes()));
 }
+async function deleteAirplane(id) {
+  await axios.get("/airplanes/" + id).then(
+      response => (getAirplanes()));
+}
 </script>
 
 <template>
@@ -57,7 +61,7 @@ async function landPlane(id) {
   </div>
   <div>
     <h1>Добавить самолет</h1>
-    <input type="text" placeholder="Модель" v-model="model" />
+    <input type="text" placeholder="Модель" v-model="model" v-on:enter="createAirplane" />
     <br>
     <input type="number" placeholder="Год выпуска" v-model="year" />
     <br>
@@ -97,6 +101,25 @@ async function landPlane(id) {
         <td v-if="airplane.in_flight === true">{{ airplane.id }}</td>
         <td v-if="airplane.in_flight === true">{{ airplane.model }}</td>
         <td v-if="airplane.in_flight === true"><button v-on:click="landPlane(airplane.id)">Посадка</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <h1>Удалить</h1>
+    <table>
+      <thead>
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>Действие</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr v-for="airplane in airplanes" :key="airplane.id">
+        <td>{{ airplane.id }}</td>
+        <td>{{ airplane.model }}</td>
+        <td><button v-on:click="deleteAirplane(airplane.id)">Удалить</button></td>
       </tr>
       </tbody>
     </table>
