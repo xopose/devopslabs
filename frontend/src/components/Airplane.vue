@@ -16,23 +16,23 @@ onMounted(() => {
 })
 
 async function getAirplanes() {
-   await axios.get("/airplanes").then(
+   await axios.get("/api/airplanes").then(
       response => (airplanes.value = response.data));
 }
 async function createAirplane() {
-  await axios.post("/airplanes", {'name' : model.value, 'prod_year' : year.value}).then(
+  await axios.post("/api/airplanes", {'name' : model.value, 'prod_year' : year.value}).then(
       response => (getAirplanes()));
 }
 async function takeOffPlane(id) {
-  await axios.post("/airplanes/flight/take_off/" + id).then(
+  await axios.post("/api/airplanes/flight/take_off/" + id).then(
       response => (getAirplanes()));
 }
 async function landPlane(id) {
-  await axios.post("/airplanes/flight/land/" + id).then(
+  await axios.post("/api/airplanes/flight/land/" + id).then(
       response => (getAirplanes()));
 }
 async function deleteAirplane(id) {
-  await axios.get("/airplanes/" + id).then(
+  await axios.get("/api/airplanes/" + id).then(
       response => (getAirplanes()));
 }
 </script>

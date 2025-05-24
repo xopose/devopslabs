@@ -105,3 +105,6 @@ jobs:
           docker compose -f docker-compose.yml build
           docker tag spring-backend ${{ secrets.DOCKER_USERNAME }}/spring-backend:latest
           docker push ${{ secrets.DOCKER_USERNAME }}/spring-backend:latest
+          docker tag frontend ${{ secrets.DOCKER_USERNAME }}/frontend:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/frontend:latest
+          
