@@ -39,7 +39,7 @@ describe('Airplane.vue', () => {
         const buttons = wrapper.findAll('button')
         await buttons[0].trigger('click')
 
-        expect(axios.post).toHaveBeenCalledWith('/airplanes', {
+        expect(axios.post).toHaveBeenCalledWith('/api/airplanes', {
             name: 'TestPlane',
             prod_year: 2025
         })
