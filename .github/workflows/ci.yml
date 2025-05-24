@@ -103,5 +103,5 @@ jobs:
       - name: Build images
         run: |
           docker compose -f docker-compose.yml build
-          docker tag devops ${{ secrets.DOCKER_USERNAME }}/devops:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/devops:latest
+          docker tag spring-backend ${{ secrets.DOCKER_USERNAME }}/spring-backend:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/spring-backend:latest
