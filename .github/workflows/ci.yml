@@ -101,6 +101,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build images
+        working-directory: ./
         run: |
           docker compose -f docker-compose.yml build
           docker tag spring-backend ${{ secrets.DOCKER_USERNAME }}/spring-backend:latest
