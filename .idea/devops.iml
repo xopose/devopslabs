@@ -12,7 +12,7 @@
     <option name="TEMPLATE_CONFIGURATION" value="Django" />
     <option name="TEMPLATE_FOLDERS">
       <list>
-        <option value="$MODULE_DIR$/../djangoProject\templates" />
+        <option value="$USER_HOME$/Desktop/raft-master/hashing/djangoProject\templates" />
       </list>
     </option>
   </component>
