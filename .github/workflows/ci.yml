@@ -112,6 +112,14 @@ jobs:
           mkdir -p ~/.kube
           echo "${{ secrets.KUBECONFIG_CONTENT }}" | base64 --decode > ~/.kube/config
 
+      - name: Create imagePullSecret for DockerHub
+        run: |
+          kubectl create secret docker-registry regcred \
+            --docker-server=https://index.docker.io/v1/ \
+            --docker-username=${{ secrets.DOCKER_USERNAME }} \
+            --docker-password=${{ secrets.DOCKER_PASSWORD }} \
+            --docker-email=example@example.com \
+            --dry-run=client -o yaml | kubectl apply -f -
       - name: Deploy to Kubernetes
         run: |
           kubectl apply -f k8s/
