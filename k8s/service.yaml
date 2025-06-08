@@ -9,7 +9,8 @@ spec:
     - protocol: TCP
       port: 8080
       targetPort: 8080
-  type: LoadBalancer
+      nodePort: 30080
+  type: NodePort
 
 
 ---
@@ -24,4 +25,5 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
-  type: LoadBalancer
+      nodePort: 30081
+  type: NodePort
