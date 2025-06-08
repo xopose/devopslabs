@@ -13,7 +13,7 @@ spec:
         app: backend
     spec:
       containers:
-        - name: backend
+        - name: java-app
           image: lazarevds/spring-backend:latest
           ports:
             - containerPort: 8080
@@ -27,7 +27,7 @@ spec:
             - name: POSTGRES_PASSWORD
               value: postgres
             - name: SPRING_DATASOURCE_URL
-              value: jdbc:postgresql://postgres:5432/devops
+              value: jdbc:postgresql://139.28.97.122:5432/devops
           resources:
             requests:
               cpu: "100m"
