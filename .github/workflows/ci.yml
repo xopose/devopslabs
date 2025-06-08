@@ -114,10 +114,10 @@ jobs:
 
       - name: Deploy to Kubernetes
         run: |
-          k8s kubectl apply -f k8s/
+          kubectl apply -f k8s/
 
       - name: Verify Deployment
         run: |
-          k8s kubectl get pods
-          k8s kubectl get svc
-          k8s kubectl get hpa
+          kubectl get pods
+          kubectl get svc
+          kubectl get hpa
