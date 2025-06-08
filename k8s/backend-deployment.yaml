@@ -6,11 +6,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: backend
+      app: java-app
   template:
     metadata:
       labels:
-        app: backend
+        app: java-app
     spec:
       containers:
         - name: java-app
