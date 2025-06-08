@@ -106,3 +106,18 @@ jobs:
           docker push ${{ secrets.DOCKER_USERNAME }}/spring-backend:latest
           docker tag frontend ${{ secrets.DOCKER_USERNAME }}/frontend:latest
           docker push ${{ secrets.DOCKER_USERNAME }}/frontend:latest
+
+      - name: Set up KUBECONFIG
+        run: |
+          mkdir -p ~/.kube
+          echo "${{ secrets.KUBECONFIG_CONTENT }}" > ~/.kube/config
+
+      - name: Deploy to Kubernetes
+        run: |
+          k8s kubectl apply -f k8s/
+
+      - name: Verify Deployment
+        run: |
+          k8s kubectl get pods
+          k8s kubectl get svc
+          k8s kubectl get hpa
