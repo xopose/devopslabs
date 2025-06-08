@@ -114,11 +114,7 @@ jobs:
 
       - name: Deploy to Kubernetes
         run: |
-          kubectl create secret docker-registry regcred \
-            --docker-server=https://index.docker.io/v1/ \
-            --docker-username=${{ secrets.DOCKER_USERNAME }} \
-            --docker-password=${{ secrets.DOCKER_PASSWORD }} \
-            --dry-run=client -o yaml | kubectl apply -f k8s/
+          kubectl apply -f k8s/
 
       - name: Verify Deployment
         run: |
