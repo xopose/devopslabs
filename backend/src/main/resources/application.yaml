@@ -27,4 +27,11 @@ management:
         loggers.access: read_only
     endpoints.web.exposure.include: health,info,prometheus,metrics,loggers
 
-pushgateway.url: http://5.129.194.133:9091/metrics/job/backend-metrics-collection-job/service/backend/instance/${POD_NAME:backend}
+pushgateway:
+    url: http://5.129.194.133:9091/metrics/job/backend-metrics-collection-job/service/backend/instance/${POD_NAME:backend}
+
+env:
+    - name: POD_NAME
+      valueFrom:
+          fieldRef:
+              fieldPath: metadata.name
