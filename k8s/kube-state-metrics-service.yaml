@@ -12,6 +12,6 @@ spec:
       protocol: TCP
       port: 8082
       targetPort: 8082
-      nodePort: 8082
+      nodePort: 30882
   selector:
     app.kubernetes.io/name: kube-state-metrics
