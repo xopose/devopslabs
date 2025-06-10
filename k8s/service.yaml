@@ -17,7 +17,7 @@ metadata:
   name: backend
 spec:
   selector:
-    app: java-app
+    app: backend
   ports:
     - name: backport
       protocol: TCP
