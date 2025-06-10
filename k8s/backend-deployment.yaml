@@ -34,6 +34,10 @@ spec:
               value: postgres
             - name: SPRING_DATASOURCE_URL
               value: jdbc:postgresql://139.28.97.122:5432/devops
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
           resources:
             requests:
               cpu: "100m"
