@@ -2,7 +2,7 @@ version: '3'
 
 services:
   java-app:
-    image: spring-backend
+    image: lazarevds/spring-backend
     build:
       context: ./backend
       dockerfile: Dockerfile

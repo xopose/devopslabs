@@ -1,0 +1,17 @@
+- name: docker install
+  hosts: vm
+  become: true
+  roles:
+    - docker
+
+- name: Checkout
+  hosts: vm
+  become: true
+  roles:
+    - checkout
+
+- name: Run
+  hosts: vm
+  become: true
+  roles:
+    - docker-run

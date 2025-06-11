@@ -1,0 +1,22 @@
+- name: Установка unzip
+  apt:
+    name: unzip
+    update_cache: yes
+
+- name: Создание директории для проекта
+  file:
+    path: "{{ project_dir }}"
+    state: directory
+    mode: '0777'
+
+- name: Копирование проекта на сервер
+  copy:
+    src: "{{ archive_path }}"
+    dest: "{{ archive_dest }}"
+    mode: '0644'
+
+- name: Распаковка архива
+  unarchive:
+    src: "{{ archive_dest }}"
+    dest: "{{ project_dir }}"
+    remote_src: yes

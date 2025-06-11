@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/path: "/actuator/prometheus"
+    prometheus.io/port: "8081"
+    prometheus.io/scheme: "http"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: lazarevds/spring-backend:latest
+          ports:
+            - containerPort: 8080
+            - containerPort: 8081
+          env:
+            - name: SERVER_PORT
+              value: "8080"
+            - name: POSTGRES_DB
+              value: devops
+            - name: POSTGRES_USER
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              value: postgres
+            - name: SPRING_DATASOURCE_URL
+              value: jdbc:postgresql://139.28.97.122:5432/devops
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+          resources:
+            requests:
+              cpu: "100m"
+            limits:
+              cpu: "200m"
+      imagePullSecrets:
+        - name: regcred

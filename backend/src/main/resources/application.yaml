@@ -3,7 +3,7 @@ spring:
         name: backend
     datasource:
         driver-class-name: org.postgresql.Driver
-        url: jdbc:postgresql://database:5432/devops
+        url: jdbc:postgresql://139.28.97.122:5432/devops
         username: postgres
         password: postgres
 
@@ -11,6 +11,21 @@ spring:
         properties:
             hibernate:
                 dialect: org.hibernate.dialect.PostgreSQLDialect
+        open-in-view: false
 
         hibernate:
-            ddl-auto: create
+            ddl-auto: none
+
+management:
+    server:
+        port: 8081
+    endpoint:
+        health.access: read_only
+        info.access: read_only
+        metrics.access: unrestricted
+        prometheus.access: unrestricted
+        loggers.access: read_only
+    endpoints.web.exposure.include: health,info,prometheus,metrics,loggers
+
+pushgateway:
+    url: http://5.129.194.133:9091/metrics/job/backend-metrics-collection-job/service/backend/instance/${POD_NAME:backend}
