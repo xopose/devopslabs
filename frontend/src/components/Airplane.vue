@@ -42,6 +42,7 @@ async function deleteAirplane(id) {
 </script>
 
 <template>
+  <h1>DFSBOVBSOEVBSOVBSOYVBSOYVBSODYVBSF</h1>
   <div>
     <h1>Список самолетов</h1>
     <table>
