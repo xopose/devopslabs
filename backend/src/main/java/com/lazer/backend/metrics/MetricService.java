@@ -12,39 +12,39 @@ public class MetricService {
 
     private final MeterRegistry meterRegistry;
 
-    private Counter getMoviesRequestCounter;
-    private Counter getMovieRequestCounter;
-    private Counter createMovieReviewRequestCounter;
-    private Counter editMovieReviewRequestCounter;
-    private Counter deleteMovieReviewRequestCounter;
+    private Counter getAllPlanesCounter;
+    private Counter createNewPlaneCounter;
+    private Counter takeOffPlaneCounter;
+    private Counter deletePlaneCounter;
+    private Counter landPlaneCounter;
 
     @PostConstruct
     private void postConstruct() {
-        getMovieRequestCounter = meterRegistry.counter("get_movie_request_counter");
-        getMoviesRequestCounter = meterRegistry.counter("get_movies_request_counter");
-        createMovieReviewRequestCounter = meterRegistry.counter("create_movie_review_request_counter");
-        editMovieReviewRequestCounter = meterRegistry.counter("edit_movie_review_request_counter");
-        deleteMovieReviewRequestCounter = meterRegistry.counter("delete_movie_review_request_counter");
+        getAllPlanesCounter = meterRegistry.counter("get_all_planes");
+        createNewPlaneCounter = meterRegistry.counter("create_new_plane");
+        deletePlaneCounter = meterRegistry.counter("delete_plane");
+        takeOffPlaneCounter = meterRegistry.counter("take_off_plane");
+        landPlaneCounter = meterRegistry.counter("land_plane");
     }
 
-    public void incrementGetMoviesRequestCounter() {
-        getMoviesRequestCounter.increment();
+    public void incrementGetAllPlanesCounter() {
+        getAllPlanesCounter.increment();
     }
 
-    public void incrementGetMovieRequestCounter() {
-        getMovieRequestCounter.increment();
+    public void incrementCreateNewPlaneCounter() {
+        createNewPlaneCounter.increment();
     }
 
-    public void incrementCreateMovieReviewRequestCounter() {
-        createMovieReviewRequestCounter.increment();
+    public void incrementTakeOffPlaneCounter() {
+        takeOffPlaneCounter.increment();
     }
 
-    public void incrementEditMovieReviewRequestCounter() {
-        editMovieReviewRequestCounter.increment();
+    public void incrementDeletePlaneCounter() {
+        deletePlaneCounter.increment();
     }
 
-    public void incrementDeleteMovieReviewRequestCounter() {
-        deleteMovieReviewRequestCounter.increment();
+    public void incrementLandPlaneCounter() {
+        landPlaneCounter.increment();
     }
 
 }

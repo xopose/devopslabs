@@ -24,7 +24,7 @@ public class AirPlaneController {
 
     @GetMapping
     public List<Airplane> findAll() {
-        metricService.incrementGetMoviesRequestCounter();
+        metricService.incrementGetAllPlanesCounter();
         return airplaneRepository.findAll();
 
     }
@@ -35,28 +35,28 @@ public class AirPlaneController {
         System.out.println(simplePlane.toString());
         Airplane airplane = new Airplane(simplePlane.getName(), simplePlane.getProd_year(), false);
         airplaneRepository.save(airplane);
-        metricService.incrementCreateMovieReviewRequestCounter();
+        metricService.incrementCreateNewPlaneCounter();
         return true;
     }
 
     @GetMapping("/{id}")
     public Boolean deletePlane(@PathVariable Long id) {
         airplaneRepository.deleteById(id);
-        metricService.incrementGetMovieRequestCounter();
+        metricService.incrementDeletePlaneCounter();
         return true;
     }
 
     @PostMapping("/flight/take_off/{id}")
     public Boolean toTakeOff(@PathVariable Long id) {
-        metricService.incrementCreateMovieReviewRequestCounter();
         airplaneRepository.updateAirplaneById(true, id);
+        metricService.incrementTakeOffPlaneCounter();
         return true;
     }
 
     @PostMapping("/flight/land/{id}")
     public Boolean toLanding(@PathVariable Long id) {
         airplaneRepository.updateAirplaneById(false, id);
-        metricService.incrementEditMovieReviewRequestCounter();
+        metricService.incrementLandPlaneCounter();
         return true;
     }
 }
