@@ -132,6 +132,7 @@ jobs:
             -Dsonar.tests=backend/src/test,frontend/__tests__ \
             -Dsonar.sources=backend/src/main,frontend/src/components \
             -Dsonar.exclusions=**/node_modules/**,**/target/**
+            -Dsonar.java.binaries=**/target/classes
 
   docker-deploy:
     needs: [test-backend, test-frontend]
@@ -157,6 +158,10 @@ jobs:
         run: |
           mkdir -p ~/.kube
           echo "${{ secrets.KUBECONFIG_CONTENT }}" | base64 --decode > ~/.kube/config
+
+      - name: Delete last
+        run: |
+          kubectl delete deployment --all
 
       - name: Deploy to Kubernetes
         run: |
