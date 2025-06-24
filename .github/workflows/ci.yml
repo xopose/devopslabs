@@ -122,6 +122,9 @@ jobs:
           mv sonar-scanner-5.0.1.3006-linux sonar-scanner
           echo "${PWD}/sonar-scanner/bin" >> $GITHUB_PATH
 
+      - name: Debug access to SonarQube
+        run: curl -v ${{ secrets.SONAR_HOST_URL }}/api/system/status
+
       - name: Run SonarQube Analysis (full project)
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
