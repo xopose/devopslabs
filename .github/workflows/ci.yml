@@ -110,6 +110,10 @@ jobs:
         run: |
           cd frontend
           npm ci
+      - name: Build Java project
+        run: |
+          cd backend
+          mvn clean verify
 
       - name: Install SonarScanner CLI
         run: |
