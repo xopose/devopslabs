@@ -7,6 +7,22 @@ on:
     branches: [ master, lab2, lab3, lab4 ]
 
 jobs:
+  build-python-bot:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          cd bot
+          pip install -r requirements.txt
+
   build-backend:
     runs-on: ubuntu-22.04
     steps:
@@ -167,6 +183,8 @@ jobs:
           docker push ${{ secrets.DOCKER_USERNAME }}/spring-backend:latest
           docker tag frontend ${{ secrets.DOCKER_USERNAME }}/frontend:latest
           docker push ${{ secrets.DOCKER_USERNAME }}/frontend:latest
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/telegram-flask-bot:latest ./bot
+          docker push ${{ secrets.DOCKER_USERNAME }}/telegram-flask-bot:latest
 
       - name: Set up KUBECONFIG
         run: |

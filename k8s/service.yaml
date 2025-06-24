@@ -28,3 +28,16 @@ spec:
       port: 8081
       targetPort: 8081
   type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: telegram-bot-service
+spec:
+  selector:
+    app: telegram-bot
+  ports:
+    - protocol: TCP
+      port: 41401
+      targetPort: 8080
+  type: LoadBalancer
