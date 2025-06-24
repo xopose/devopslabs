@@ -2,7 +2,7 @@ import { mount, flushPromises } from '@vue/test-utils'
 vi.mock('axios')
 
 import axios from 'axios'
-import Airplane from '../Airplane.vue'
+import Airplane from '../src/components/Airplane.vue'
 
 describe('Airplane.vue', () => {
     const mockAirplanes = [
