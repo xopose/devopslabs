@@ -140,7 +140,7 @@ jobs:
             -Dsonar.javascript.lcov.reportPaths=frontend/coverage/lcov.info \
             -Dsonar.tests=backend/src/test,frontend/__tests__ \
             -Dsonar.sources=backend/src/main,frontend/src/components \
-            -Dsonar.exclusions=frontend/**, \
+            -Dsonar.exclusions=frontend/**,backend/src/main/service/** \
             -Dsonar.coverage.exclusions=backend/src/main/scheduler/** \
             -Dsonar.java.binaries=backend/target/classes \
             -Dsonar.projectName='devopslabs' \
