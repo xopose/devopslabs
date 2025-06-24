@@ -11,7 +11,7 @@ app = Flask(__name__)
 def relay():
     text = (request.get_json(force=True) or {}).get('message', '')
     asyncio.run_coroutine_threadsafe(bot.send_message(936331176, text), loop)
-    return '', 204
+    return text, 204
 
 @app.get("/health")
 def health():
