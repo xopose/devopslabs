@@ -13,7 +13,7 @@ def relay():
     asyncio.run_coroutine_threadsafe(bot.send_message(368993112, text), loop)
     return '', 204
 
-@app.get("/")
+@app.get("/health")
 def health():
     return "OK", 200
 
