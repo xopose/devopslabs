@@ -16,7 +16,7 @@ spec:
         - name: telegram-bot
           image: lazarevds/telegram-flask-bot:latest
           ports:
-            - containerPort: 8080
+            - containerPort: 41401
           resources:
             requests:
               cpu: "50m"
@@ -25,12 +25,12 @@ spec:
           readinessProbe:
             httpGet:
               path: /health
-              port: 8080
+              port: 41401
 
           livenessProbe:
             httpGet:
               path: /health
-              port: 8080
+              port: 41401
             initialDelaySeconds: 15
             periodSeconds: 20
       imagePullSecrets:

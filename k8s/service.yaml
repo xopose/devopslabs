@@ -39,5 +39,5 @@ spec:
   ports:
     - protocol: TCP
       port: 41401
-      targetPort: 8080
+      targetPort: 41401
   type: ClusterIP
