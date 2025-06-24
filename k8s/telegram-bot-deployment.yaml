@@ -24,13 +24,12 @@ spec:
               cpu: "100m"
           readinessProbe:
             httpGet:
-              path: /
+              path: /health
               port: 8080
-            initialDelaySeconds: 5
-            periodSeconds: 10
+
           livenessProbe:
             httpGet:
-              path: /
+              path: /health
               port: 8080
             initialDelaySeconds: 15
             periodSeconds: 20
