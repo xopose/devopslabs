@@ -140,7 +140,8 @@ jobs:
             -Dsonar.sources=backend/src/main,frontend/src/components \
             -Dsonar.exclusions=frontend/node_modules/** \
             -Dsonar.java.binaries=backend/target/classes \
-            -Dsonar.projectName='devopslabs'
+            -Dsonar.projectName='devopslabs' \
+            -Dsonar.newCode.period=2000-01-01
 
   docker-deploy:
     needs: [test-backend, test-frontend]
