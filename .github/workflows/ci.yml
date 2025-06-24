@@ -134,7 +134,7 @@ jobs:
           sonar-scanner \
             -Dsonar.projectKey=xopose_devopslabs_07bbd886-620a-47f7-b790-5481cf90ae59 \
             -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
-            -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
+            -Dsonar.token=${{ secrets.SONAR_TOKEN }} \
             -Dsonar.qualitygate.wait=true \
             -Dsonar.sourceEncoding=UTF-8 \
             -Dsonar.javascript.lcov.reportPaths=frontend/coverage/lcov.info \
@@ -143,7 +143,10 @@ jobs:
             -Dsonar.exclusions=frontend/node_modules/** \
             -Dsonar.java.binaries=backend/target/classes \
             -Dsonar.projectName='devopslabs' \
-            -Dsonar.newCode.period=2000-01-01
+            -Dsonar.newCode.period=2000-01-01 \
+            -Dsonar.javascript.lcov.reportPaths=frontend/coverage/lcov.info \
+            -Dsonar.coverage.jacoco.xmlReportPaths=backend/target/site/jacoco/jacoco.xml
+
 
   docker-deploy:
     needs: [test-backend, test-frontend]
