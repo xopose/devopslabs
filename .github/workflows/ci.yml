@@ -127,7 +127,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           sonar-scanner \
-            -Dsonar.projectKey=xopose_devopslabs_98ecfafd-1b8f-45fc-91b9-c24dbf807009 \
+            -Dsonar.projectKey=xopose_devopslabs_07bbd886-620a-47f7-b790-5481cf90ae59 \
             -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
             -Dsonar.login=${{ secrets.SONAR_TOKEN }} \
             -Dsonar.qualitygate.wait=true \
