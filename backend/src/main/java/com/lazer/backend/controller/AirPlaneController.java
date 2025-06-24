@@ -32,7 +32,6 @@ public class AirPlaneController {
     @PostMapping
     public Boolean createPlane(@RequestBody String message) throws JsonProcessingException {
         SimplePlane simplePlane = jasksonService.jsonStringToPojo(SimplePlane.class, message);
-        System.out.println(simplePlane.toString());
         Airplane airplane = new Airplane(simplePlane.getName(), simplePlane.getProd_year(), false);
         airplaneRepository.save(airplane);
         metricService.incrementCreateNewPlaneCounter();
