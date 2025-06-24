@@ -130,7 +130,7 @@ jobs:
             -Dsonar.qualitygate.wait=true \
             -Dsonar.sourceEncoding=UTF-8 \
             -Dsonar.javascript.lcov.reportPaths=frontend/coverage/lcov.info \
-            -Dsonar.tests=backend/src/test,frontend/tests \
+            -Dsonar.tests=backend/src/test,frontend/src/components/__tests__ \
             -Dsonar.exclusions=**/node_modules/**,**/target/**
 
   docker-deploy:
