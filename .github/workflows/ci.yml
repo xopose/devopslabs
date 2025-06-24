@@ -113,12 +113,10 @@ jobs:
 
       - name: Install SonarScanner CLI
         run: |
-          sudo apt-get update
-          sudo apt-get install -y unzip
           wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
-          unzip sonar-scanner-cli-*.zip
-          mv sonar-scanner-* sonar-scanner
-          echo "$GITHUB_WORKSPACE/sonar-scanner/bin" >> $GITHUB_PATH
+          unzip sonar-scanner-cli-5.0.1.3006-linux.zip
+          mv sonar-scanner-5.0.1.3006-linux sonar-scanner
+          echo "${PWD}/sonar-scanner/bin" >> $GITHUB_PATH
 
       - name: Run SonarQube Analysis (full project)
         env:
