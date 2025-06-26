@@ -42,7 +42,7 @@ jobs:
           mvn clean package -B -DskipTests
 
   test-backend:
-    needs: build-backend
+    needs: [build-backend]
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout code
@@ -82,7 +82,7 @@ jobs:
           npm run build
 
   test-frontend:
-    needs: build-frontend
+    needs: [build-frontend]
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout code
@@ -104,7 +104,7 @@ jobs:
           npx vitest run
 
   sonar-scan:
-    needs: [ build-backend, build-frontend ]
+    needs: [ test-backend, test-frontend ]
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout code
