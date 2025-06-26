@@ -165,7 +165,7 @@ jobs:
 
 
   docker-deploy:
-    needs: [test-backend, test-frontend]
+    needs: [sonar-scan]
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout code
@@ -185,6 +185,13 @@ jobs:
           docker push ${{ secrets.DOCKER_USERNAME }}/frontend:latest
           docker build -t ${{ secrets.DOCKER_USERNAME }}/telegram-flask-bot:latest ./bot
           docker push ${{ secrets.DOCKER_USERNAME }}/telegram-flask-bot:latest
+
+  kubernetes-deploy:
+    needs: [docker-deploy]
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Set up KUBECONFIG
         run: |
