@@ -35,7 +35,7 @@ public class AirPlaneController {
         SimplePlane simplePlane = jasksonService.jsonStringToPojo(SimplePlane.class, message);
         Airplane airplane = new Airplane(simplePlane.getName(), simplePlane.getProd_year(), false);
         airplaneRepository.save(airplane);
-        BotRest.send("Создан самолет" + airplane.getModel() + " " + airplane.getProd_year());
+        BotRest.send("Создан самолет " + airplane.getModel() + " " + airplane.getProd_year());
         metricService.incrementCreateNewPlaneCounter();
         return true;
     }
@@ -43,7 +43,7 @@ public class AirPlaneController {
     @GetMapping("/{id}")
     public Boolean deletePlane(@PathVariable Long id) {
         airplaneRepository.deleteById(id);
-        BotRest.send("Удален самолет" + id);
+        BotRest.send("Удален самолет " + id);
         metricService.incrementDeletePlaneCounter();
         return true;
     }
@@ -51,7 +51,7 @@ public class AirPlaneController {
     @PostMapping("/flight/take_off/{id}")
     public Boolean toTakeOff(@PathVariable Long id) {
         airplaneRepository.updateAirplaneById(true, id);
-        BotRest.send("Взлетел самолет" + id);
+        BotRest.send("Взлетел самолет " + id);
         metricService.incrementTakeOffPlaneCounter();
         return true;
     }
@@ -59,7 +59,7 @@ public class AirPlaneController {
     @PostMapping("/flight/land/{id}")
     public Boolean toLanding(@PathVariable Long id) {
         airplaneRepository.updateAirplaneById(false, id);
-        BotRest.send("Сел самолет" + id);
+        BotRest.send("Сел самолет " + id);
         metricService.incrementLandPlaneCounter();
         return true;
     }
