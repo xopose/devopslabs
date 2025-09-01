@@ -39,7 +39,7 @@ async function deleteAirplane(id) {
 
 <template>
   <div>
-    <h1>Список самолетов111111111111111111111111111111111111111</h1>
+    <h1>Список самолетов</h1>
     <table>
       <thead>
         <tr>
