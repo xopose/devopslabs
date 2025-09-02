@@ -194,7 +194,7 @@ jobs:
           docker push ${{ secrets.DOCKER_USERNAME }}/telegram-flask-bot:latest
 
   kubernetes-deploy:
-#    needs: [docker-deploy]
+    needs: [docker-deploy]
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout code

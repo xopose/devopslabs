@@ -28,4 +28,4 @@ management:
     endpoints.web.exposure.include: health,info,prometheus,metrics,loggers
 
 pushgateway:
-    url: http://devopslabs.dmitrii-lazarev.ru:9091/metrics/job/backend-metrics-collection-job/service/backend/instance/${POD_NAME:backend}
+    url: http://85.193.81.69:9091/metrics/job/backend-metrics-collection-job/service/backend/instance/${POD_NAME:backend}
