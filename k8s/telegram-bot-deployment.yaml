@@ -12,6 +12,10 @@ spec:
       labels:
         app: telegram-bot
     spec:
+      hostAliases:
+        - ip: "149.154.167.220"
+          hostnames:
+            - "api.telegram.org"
       containers:
         - name: telegram-bot
           image: lazarevds/telegram-flask-bot:latest
