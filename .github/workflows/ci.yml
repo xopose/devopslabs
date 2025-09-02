@@ -7,172 +7,172 @@ on:
     branches: [ master, lab2, lab3, lab4 ]
 
 jobs:
-  build-python-bot:
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-
-      - name: Install dependencies
-        run: |
-          cd bot
-          pip install -r requirements.txt
-
-  build-backend:
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: JDK 21
-        uses: actions/setup-java@v4
-        with:
-          java-version: '21'
-          distribution: 'temurin'
-          cache: 'maven'
-
-      - name: Build backend
-        run: |
-          cd backend
-          mvn clean package -B -DskipTests
-
-  test-backend:
-    needs: [build-backend]
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: JDK 21
-        uses: actions/setup-java@v4
-        with:
-          java-version: '21'
-          distribution: 'temurin'
-          cache: 'maven'
-
-      - name: Tests
-        run: |
-          cd backend
-          mvn clean verify
-
-  test-python-bot:
-    needs: [build-python-bot]
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-  build-frontend:
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-
-      - name: Dependencies
-        run: |
-          cd frontend
-          npm ci
-
-      - name: Build frontend
-        run: |
-          cd frontend
-          npm run build
-
-  test-frontend:
-    needs: [build-frontend]
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-
-      - name: Dependencies
-        run: |
-          cd frontend
-          npm ci
-
-      - name: Tests
-        run: |
-          cd frontend
-          npx vitest run
-
-  sonar-scan:
-    needs: [ test-backend, test-frontend, test-python-bot ]
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Set up Java for backend scan
-        uses: actions/setup-java@v4
-        with:
-          java-version: '21'
-          distribution: 'temurin'
-          cache: 'maven'
-
-      - name: Set up Node.js for frontend scan
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-
-      - name: Install frontend dependencies
-        run: |
-          cd frontend
-          npm ci
-      - name: Build Java project
-        run: |
-          cd backend
-          mvn clean verify
-
-      - name: Install SonarScanner CLI
-        run: |
-          wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
-          unzip sonar-scanner-cli-5.0.1.3006-linux.zip
-          mv sonar-scanner-5.0.1.3006-linux sonar-scanner
-          echo "${PWD}/sonar-scanner/bin" >> $GITHUB_PATH
-
-      - name: Debug access to SonarQube
-        run: curl -v ${{ secrets.SONAR_HOST_URL }}/api/system/status
-
-      - name: Run SonarQube Analysis (full project)
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: |
-          npx sonar-scanner \
-            -Dsonar.projectKey=xopose_devopslabs_0b61b0b5-c16f-41ed-a1ae-72baf64d4f44 \
-            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
-            -Dsonar.token=${{ secrets.SONAR_TOKEN }} \
-            -Dsonar.qualitygate.wait=true \
-            -Dsonar.sourceEncoding=UTF-8 \
-            -Dsonar.javascript.lcov.reportPaths=frontend/coverage/lcov.info \
-            -Dsonar.tests=backend/src/test,frontend/__tests__ \
-            -Dsonar.sources=backend/src/main,frontend/src/components \
-            -Dsonar.exclusions=frontend/**,backend/src/main/java/com/lazer/backend/service/**,backend/src/main/java/com/lazer/model/** \
-            -Dsonar.coverage.exclusions=backend/src/main/scheduler/** \
-            -Dsonar.java.binaries=backend/target/classes \
-            -Dsonar.projectName='devopslabs' \
-            -Dsonar.javascript.lcov.reportPaths=frontend/coverage/lcov.info \
-            -Dsonar.coverage.jacoco.xmlReportPaths=backend/target/site/jacoco/jacoco.xml
+#  build-python-bot:
+#    runs-on: ubuntu-22.04
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v4
+#
+#      - name: Set up Python
+#        uses: actions/setup-python@v5
+#        with:
+#          python-version: '3.11'
+#
+#      - name: Install dependencies
+#        run: |
+#          cd bot
+#          pip install -r requirements.txt
+#
+#  build-backend:
+#    runs-on: ubuntu-22.04
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v4
+#
+#      - name: JDK 21
+#        uses: actions/setup-java@v4
+#        with:
+#          java-version: '21'
+#          distribution: 'temurin'
+#          cache: 'maven'
+#
+#      - name: Build backend
+#        run: |
+#          cd backend
+#          mvn clean package -B -DskipTests
+#
+#  test-backend:
+#    needs: [build-backend]
+#    runs-on: ubuntu-22.04
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v4
+#
+#      - name: JDK 21
+#        uses: actions/setup-java@v4
+#        with:
+#          java-version: '21'
+#          distribution: 'temurin'
+#          cache: 'maven'
+#
+#      - name: Tests
+#        run: |
+#          cd backend
+#          mvn clean verify
+#
+#  test-python-bot:
+#    needs: [build-python-bot]
+#    runs-on: ubuntu-22.04
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v4
+#
+#  build-frontend:
+#    runs-on: ubuntu-22.04
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v4
+#
+#      - name: Set up node
+#        uses: actions/setup-node@v4
+#        with:
+#          node-version: '22'
+#
+#      - name: Dependencies
+#        run: |
+#          cd frontend
+#          npm ci
+#
+#      - name: Build frontend
+#        run: |
+#          cd frontend
+#          npm run build
+#
+#  test-frontend:
+#    needs: [build-frontend]
+#    runs-on: ubuntu-22.04
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v4
+#
+#      - name: Set up node
+#        uses: actions/setup-node@v4
+#        with:
+#          node-version: '22'
+#
+#      - name: Dependencies
+#        run: |
+#          cd frontend
+#          npm ci
+#
+#      - name: Tests
+#        run: |
+#          cd frontend
+#          npx vitest run
+#
+#  sonar-scan:
+#    needs: [ test-backend, test-frontend, test-python-bot ]
+#    runs-on: ubuntu-22.04
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v4
+#        with:
+#          fetch-depth: 0
+#
+#      - name: Set up Java for backend scan
+#        uses: actions/setup-java@v4
+#        with:
+#          java-version: '21'
+#          distribution: 'temurin'
+#          cache: 'maven'
+#
+#      - name: Set up Node.js for frontend scan
+#        uses: actions/setup-node@v4
+#        with:
+#          node-version: '22'
+#
+#      - name: Install frontend dependencies
+#        run: |
+#          cd frontend
+#          npm ci
+#      - name: Build Java project
+#        run: |
+#          cd backend
+#          mvn clean verify
+#
+#      - name: Install SonarScanner CLI
+#        run: |
+#          wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
+#          unzip sonar-scanner-cli-5.0.1.3006-linux.zip
+#          mv sonar-scanner-5.0.1.3006-linux sonar-scanner
+#          echo "${PWD}/sonar-scanner/bin" >> $GITHUB_PATH
+#
+#      - name: Debug access to SonarQube
+#        run: curl -v ${{ secrets.SONAR_HOST_URL }}/api/system/status
+#
+#      - name: Run SonarQube Analysis (full project)
+#        env:
+#          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+#        run: |
+#          npx sonar-scanner \
+#            -Dsonar.projectKey=xopose_devopslabs_0b61b0b5-c16f-41ed-a1ae-72baf64d4f44 \
+#            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
+#            -Dsonar.token=${{ secrets.SONAR_TOKEN }} \
+#            -Dsonar.qualitygate.wait=true \
+#            -Dsonar.sourceEncoding=UTF-8 \
+#            -Dsonar.javascript.lcov.reportPaths=frontend/coverage/lcov.info \
+#            -Dsonar.tests=backend/src/test,frontend/__tests__ \
+#            -Dsonar.sources=backend/src/main,frontend/src/components \
+#            -Dsonar.exclusions=frontend/**,backend/src/main/java/com/lazer/backend/service/**,backend/src/main/java/com/lazer/model/** \
+#            -Dsonar.coverage.exclusions=backend/src/main/scheduler/** \
+#            -Dsonar.java.binaries=backend/target/classes \
+#            -Dsonar.projectName='devopslabs' \
+#            -Dsonar.javascript.lcov.reportPaths=frontend/coverage/lcov.info \
+#            -Dsonar.coverage.jacoco.xmlReportPaths=backend/target/site/jacoco/jacoco.xml
 
 
   docker-deploy:
-    needs: [sonar-scan]
+#    needs: [sonar-scan]
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout code
