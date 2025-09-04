@@ -155,7 +155,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: |
           npx sonar-scanner \
-            -Dsonar.projectKey=xopose_devopslabs_b7a557d3-10e0-4a49-8009-e0330735739c \
+            -Dsonar.projectKey=xopose_devopslabs_c573525b-5be5-4e93-8df1-ae02c6d3fb08 \
             -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
             -Dsonar.token=${{ secrets.SONAR_TOKEN }} \
             -Dsonar.qualitygate.wait=true \
