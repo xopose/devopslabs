@@ -24,7 +24,7 @@ public class BotRest {
             String response = restTemplate.postForObject(url, request, String.class);
         }
         catch (RestClientException e) {
-            System.out.println("can`t send data");
+            System.out.println("can`t send data to bot");
         }
     }
 }
