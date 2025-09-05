@@ -3,9 +3,9 @@ spring:
         name: backend
     datasource:
         driver-class-name: org.postgresql.Driver
-        url: jdbc:postgresql://139.28.97.122:5432/devops
-        username: postgres
-        password: ZUEKXFFtrW1KQEcjbJ26
+        url: ${SPRING_DATASOURCE_URL}
+        username: ${POSTGRES_USER}
+        password: ${POSTGRES_PASSWORD}
 
     jpa:
         properties:

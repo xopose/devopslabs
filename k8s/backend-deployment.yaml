@@ -31,7 +31,7 @@ spec:
             - name: POSTGRES_USER
               value: postgres
             - name: POSTGRES_PASSWORD
-              value: postgres
+              value: ZUEKXFFtrW1KQEcjbJ26
             - name: SPRING_DATASOURCE_URL
               value: jdbc:postgresql://139.28.97.122:5432/devops
             - name: POD_NAME
