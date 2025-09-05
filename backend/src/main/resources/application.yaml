@@ -5,7 +5,7 @@ spring:
         driver-class-name: org.postgresql.Driver
         url: jdbc:postgresql://139.28.97.122:5432/devops
         username: postgres
-        password: postgres
+        password: ZUEKXFFtrW1KQEcjbJ26
 
     jpa:
         properties:
